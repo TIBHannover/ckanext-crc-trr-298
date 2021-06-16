@@ -85,6 +85,7 @@ setup(
     entry_points='''
         [ckan.plugins]
         user_manual=ckanext.sfb_layout.plugin:UserManualPlugin
+        sfb1368_style=ckanext.sfb_layout.plugin2:SfbSixtyEightStylePlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan

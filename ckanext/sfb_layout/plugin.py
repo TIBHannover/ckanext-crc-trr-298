@@ -10,6 +10,6 @@ class UserManualPlugin(plugins.SingletonPlugin):
     def update_config(self, config_):
         toolkit.add_template_directory(config_, 'templates/user_manual')
         toolkit.add_public_directory(config_, 'public/user_manual_statics')
-        toolkit.add_resource('public/user_manual_statics/statics', 'ckanext-sfb-layout')
+        toolkit.add_resource('public/user_manual_statics/statics', 'ckanext-sfb-layout-help')
         
     
