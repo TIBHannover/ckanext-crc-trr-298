@@ -14,3 +14,15 @@ config-js:
       - vendor/jquery.ui.core
   contents:
     - config.js
+
+promoted-js:  
+  output: ckanext-sfb-layout/%(version)s_my.js
+  extra:
+    preload:
+      - base/main
+      - vendor/vendor
+      - vendor/bootstrap
+      - vendor/jquery
+      - vendor/jquery.ui.core
+  contents:
+    - promoted.js

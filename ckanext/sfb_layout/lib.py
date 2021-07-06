@@ -28,10 +28,16 @@ class FeatureImageFunctions():
         if image:
             image.save(image_store_url)
         
-        if image_text:
-            text_url = FeatureImageFunctions.UPLOAD_DIR + 'feature_text.txt'
-            with open(text_url, 'w+') as text:
-                text.write(image_text)
+        text_url = FeatureImageFunctions.UPLOAD_DIR + 'feature_text.txt'
+        with open(text_url, 'w+') as text:
+            text.write(image_text)
+            
 
-        return redirect(h.url_for('feature_image.config', _external=True))
+        return redirect(h.url_for('home.index', _external=True))
+    
+    
+    def get_text():
+        text_url = FeatureImageFunctions.UPLOAD_DIR + 'feature_text.txt'
+        with open(text_url, 'r') as text:
+            return text.read()
         

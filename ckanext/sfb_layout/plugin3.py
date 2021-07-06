@@ -31,7 +31,14 @@ class FeatureImagePlugin(plugins.SingletonPlugin):
             u'save_config',
             FeatureImageFunctions.save_config,
             methods=['POST']
-            )   
+            )    
+
+        blueprint.add_url_rule(
+            u'/feature_image/get_text',
+            u'get_text',
+            FeatureImageFunctions.get_text,
+            methods=['GET']
+            )  
 
         return blueprint 
     
