@@ -4,6 +4,7 @@
 | --------------- | ------------- |
 |  **sfb1368_style** | This plugin modifies the ckan general style for the site headers and footer    |
 | **user_manual** | The plugin adds a "Help" option on the site main navigation menu. The Help page contains information about CKAN functionalities that aims to answer users questions and guiding them to use CKAN.           |
+| **feature_image** | The plugin ables system admins to upload a featured image and caption for the CKAN homepage.|
 
 
 ## Requirements
@@ -31,7 +32,7 @@ To install ckanext-sfb-layout:
         pip install -e .
         pip install -r requirements.txt
 
-3. Add `sfb1368_style` and `user_manual` to the `ckan.plugins` setting in your CKAN config file (by default the config file is located at `/etc/ckan/default/ckan.ini`).
+3. Add `sfb1368_style`, `user_manual`, and `feature_image`  to the `ckan.plugins` setting in your CKAN config file (by default the config file is located at `/etc/ckan/default/ckan.ini`).
 
 4. Restart CKAN. For example if you've deployed CKAN with Nginx on Ubuntu:
 
