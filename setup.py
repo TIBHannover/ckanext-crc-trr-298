@@ -86,6 +86,7 @@ setup(
         [ckan.plugins]
         user_manual=ckanext.sfb_layout.plugin:UserManualPlugin
         sfb1368_style=ckanext.sfb_layout.plugin2:SfbSixtyEightStylePlugin
+        feature_image=ckanext.sfb_layout.plugin3:FeatureImagePlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
