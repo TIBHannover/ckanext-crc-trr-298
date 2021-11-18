@@ -8,7 +8,6 @@ def help():
 
 
 
-
 class UserManualPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.IBlueprint)
