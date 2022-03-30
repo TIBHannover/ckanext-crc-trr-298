@@ -84,7 +84,7 @@ setup(
     # pip to create the appropriate form of executable for the target platform.
     entry_points='''
         [ckan.plugins]
-        sfb1368_style=ckanext.sfb_layout.plugin2:SfbSixtyEightStylePlugin
+        sfb1368_style=ckanext.sfb_layout.plugin1:SfbSixtyEightStylePlugin
 
         [babel.extractors]
         ckan = ckan.lib.extract:extract_ckan
