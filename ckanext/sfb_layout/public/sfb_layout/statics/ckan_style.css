@@ -2,6 +2,11 @@
   margin: 10px;
 }
 
+.sfb-header-container{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 /* =====================================================
    The "account masthead" bar across the top of the site
    ===================================================== */
