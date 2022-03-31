@@ -3,6 +3,6 @@
 {% block styles %}
   {{ super() }}
   {% if h.which_sfb() == '1368' %}
-      {# {% asset 'ckanext-sfb-layout/sfb1368-css' %} #}
+      {% asset 'ckanext-sfb-layout/sfb1368-css' %}
   {% endif %}
 {% endblock %}
