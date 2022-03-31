@@ -1,0 +1,10 @@
+sfb1368-css:
+  output: ckanext-sfb-layout/%(version)s_my.css
+  contents:
+    - ckan_style.css
+
+
+sfb1153-css:
+  output: ckanext-sfb-layout/%(version)s_my.css
+  contents:
+    - ckan_1153_style.css

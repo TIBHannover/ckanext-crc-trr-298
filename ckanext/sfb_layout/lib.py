@@ -7,37 +7,29 @@ import ckan.logic as logic
 
 
 
-class FeatureImageFunctions():
-    UPLOAD_DIR = toolkit.config['ckan.storage_path'] + '/storage/uploads/admin/'
+class Helper():
+    
+    @staticmethod
+    def which_sfb():
+        '''
+            Check which sfb server the plugin is runnung in. 
+        '''
 
-    def config():
-        return render_template('config.html')
+        ckan_root_path = toolkit.config.get('ckan.root_path')
+        if  ckan_root_path and 'sfb1368/ckan' in ckan_root_path:
+            return '1368'
+        elif ckan_root_path and 'sfb1153/ckan' in ckan_root_path:
+            return '1153'
+        else:
+            # localhost
+            return '1368'
     
 
-    def save_config():
-        context = {'model': model,
-                   'user': toolkit.g.user, 'auth_user_obj': toolkit.g.userobj}
-        try:
-            logic.check_access('sysadmin', context, {})
-        except logic.NotAuthorized:
-            toolkit.abort(403, 'Need to be system administrator to administer')
-        
-        image_text = request.form.get('feature_image_text')
-        image = request.files.get('image')
-        image_store_url =  FeatureImageFunctions.UPLOAD_DIR + 'feature_image'              
-        if image:
-            image.save(image_store_url)
-        
-        text_url = FeatureImageFunctions.UPLOAD_DIR + 'feature_text.txt'
-        with open(text_url, 'w+') as text:
-            text.write(image_text)
-            
-
-        return redirect(h.url_for('home.index', _external=True))
+    @staticmethod
+    def check_plugin_enabled(plugin_name):
+        plugins = toolkit.config.get("ckan.plugins")
+        if plugin_name in plugins:
+            return True
+        return False
     
     
-    def get_text():
-        text_url = FeatureImageFunctions.UPLOAD_DIR + 'feature_text.txt'
-        with open(text_url, 'r') as text:
-            return text.read()
-        
