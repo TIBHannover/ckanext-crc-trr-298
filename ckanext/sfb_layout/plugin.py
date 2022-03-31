@@ -10,7 +10,7 @@ class SfbLayoutPlugin(plugins.SingletonPlugin):
     # IConfigurer
 
     def update_config(self, config_):
-        toolkit.add_template_directory(config_, 'templates/sfb_layout')
+        toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public/sfb_layout')
         toolkit.add_resource('public/sfb_layout/statics', 'ckanext-sfb-layout')
         
