@@ -32,4 +32,33 @@ class Helper():
             return True
         return False
     
+
+    @staticmethod
+    def stages_count():
+        plugins_with_stages = ['resource_custom_metadata', 'organization_group', 'semantic_media_wiki']
+        enabled_plugins = toolkit.config.get("ckan.plugins")
+        count = 0
+        for pl in plugins_with_stages:
+            if pl in enabled_plugins:
+                count += 1
+        
+        return count
+    
+
+
+    @staticmethod
+    def get_stages_class(current_stages):
+        stages = [''] * (Helper.stages_count() + 2)
+        for i in range(len(stages)):
+            try:
+                stages[i] = current_stages[i]
+            except:
+                if i == 0:
+                    stages[i] = 'active'
+                else:
+                    stages[i] = 'uncomplete'
+        
+        return stages
+
+    
     
