@@ -43,22 +43,59 @@ class Helper():
                 count += 1
         
         return count
+
+
+    @staticmethod
+    def set_stages():
+        stages= []
+        if Helper.which_sfb() == '1368':
+            if  'dataset/new' in  h.full_current_url():
+                stages = ['active', 'uncomplete','uncomplete', 'uncomplete', 'uncomplete']
+            
+            elif 'resource/new' in h.full_current_url():
+                stages = ['complete', 'active','uncomplete', 'uncomplete', 'uncomplete']
+            
+            elif 'resource_custom_metadata/index' in h.full_current_url():
+                stages = ['complete', 'complete','active', 'uncomplete', 'uncomplete']
+            
+            elif 'upgrade_dataset/add_ownership_view' in h.full_current_url():
+                stages = ['complete', 'complete','complete', 'active', 'uncomplete']
+            
+            elif 'smw/machines_view' in h.full_current_url():
+                stages = ['complete', 'complete','complete', 'complete', 'active']
+        
+        else:
+            # 1153
+            if  'dataset/new' in  h.full_current_url():
+                stages = ['active', 'uncomplete','uncomplete', 'uncomplete']
+            
+            elif 'resource/new' in h.full_current_url():
+                stages = ['complete', 'active','uncomplete', 'uncomplete']
+                        
+            elif 'upgrade_dataset/add_ownership_view' in h.full_current_url():
+                stages = ['complete', 'complete','active', 'uncomplete']
+            
+            elif 'smw/machines_view' in h.full_current_url():
+                stages = ['complete', 'complete','complete', 'active']
+        
+        return stages
+
+
+    @staticmethod
+    def set_orders():
+        if Helper.which_sfb() == '1368':
+            return ['second', 'third', 'forth']
+        else:
+            return ['second', 'third']
     
 
 
     @staticmethod
-    def get_stages_class(current_stages):
-        stages = [''] * (Helper.stages_count() + 2)
-        for i in range(len(stages)):
-            try:
-                stages[i] = current_stages[i]
-            except:
-                if i == 0:
-                    stages[i] = 'active'
-                else:
-                    stages[i] = 'uncomplete'
-        
-        return stages
+    def set_titles():
+        if Helper.which_sfb() == '1368':
+            return ['Add data', 'Metadata', 'Ownership', 'Equipment(s)'] 
+        else:
+            return ['Add data', 'Ownership', 'Equipment(s)'] 
 
     
     

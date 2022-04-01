@@ -20,5 +20,7 @@ class SfbLayoutPlugin(plugins.SingletonPlugin):
         return {'which_sfb': Helper.which_sfb, 
             'is_enabled': Helper.check_plugin_enabled,
             'stages_count': Helper.stages_count, 
-            'get_stages_class': Helper.get_stages_class
+            'set_stages': Helper.set_stages,
+            'set_orders': Helper.set_orders,
+            'set_titles': Helper.set_titles
         }
