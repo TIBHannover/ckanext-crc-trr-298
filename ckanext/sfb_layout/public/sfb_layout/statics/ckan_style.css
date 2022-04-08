@@ -15,6 +15,12 @@
   width: 400px;
 }
 
+.item-label{
+  white-space: initial !important;
+ width: 90%;
+ display: inline-block;
+}
+
 /* =====================================================
    The "account masthead" bar across the top of the site
    ===================================================== */

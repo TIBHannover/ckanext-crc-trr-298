@@ -16,7 +16,7 @@
   }
 
  .item-label{
-   white-space: normal !important;
+   white-space: initial !important;
   width: 90%;
   display: inline-block;
  }
