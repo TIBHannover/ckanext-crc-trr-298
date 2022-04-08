@@ -14,3 +14,9 @@
   #field-sitewide-search{
     width: 400px;
   }
+
+ .item-label{
+   white-space: normal !important;
+  width: 90%;
+  display: inline-block;
+ }
