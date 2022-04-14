@@ -1,6 +1,6 @@
-#content{
+/* #content{
   margin: 10px;
-}
+} */
 
 .sfb-header-container{
   margin-left: 10px;
@@ -13,6 +13,12 @@
 
 #field-sitewide-search{
   width: 400px;
+}
+
+.item-label{
+  white-space: initial !important;
+ width: 90%;
+ display: inline-block;
 }
 
 /* =====================================================

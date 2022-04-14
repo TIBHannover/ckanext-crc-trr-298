@@ -8,3 +8,22 @@ sfb1153-css:
   output: ckanext-sfb-layout/%(version)s_my.css
   contents:
     - ckan_1153_style.css
+
+
+stages-css:
+  output: ckanext-sfb-layout/%(version)s_my.css
+  contents:
+    - stages.css
+
+
+stages-js:  
+  output: ckanext-sfb-layout/%(version)s_my.js
+  extra:
+    preload:
+      - base/main
+      - vendor/vendor
+      - vendor/bootstrap
+      - vendor/jquery
+      - vendor/jquery.ui.core
+  contents:
+    - stages.js

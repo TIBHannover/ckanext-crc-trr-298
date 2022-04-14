@@ -32,4 +32,73 @@ class Helper():
             return True
         return False
     
+
+    @staticmethod
+    def stages_count():
+        plugins_with_stages = ['resource_custom_metadata', 'organization_group', 'semantic_media_wiki', 'sample_link']
+        enabled_plugins = toolkit.config.get("ckan.plugins")
+        count = 0
+        for pl in plugins_with_stages:
+            if pl in enabled_plugins:
+                count += 1
+        
+        return count
+
+
+    @staticmethod
+    def set_stages():
+        stages= []
+        if Helper.which_sfb() == '1368':
+            if  'dataset/new' in  h.full_current_url():
+                stages = ['active', 'uncomplete','uncomplete', 'uncomplete', 'uncomplete']
+            
+            elif 'resource/new' in h.full_current_url():
+                stages = ['complete', 'active','uncomplete', 'uncomplete', 'uncomplete']
+            
+            elif 'resource_custom_metadata/index' in h.full_current_url():
+                stages = ['complete', 'complete','active', 'uncomplete', 'uncomplete']
+            
+            elif 'upgrade_dataset/add_ownership_view' in h.full_current_url():
+                stages = ['complete', 'complete','complete', 'active', 'uncomplete']
+            
+            elif 'smw/machines_view' in h.full_current_url():
+                stages = ['complete', 'complete','complete', 'complete', 'active']
+        
+        else:
+            # 1153
+            if  'dataset/new' in  h.full_current_url():
+                stages = ['active', 'uncomplete','uncomplete', 'uncomplete', 'uncomplete']
+            
+            elif 'resource/new' in h.full_current_url():
+                stages = ['complete', 'active','uncomplete', 'uncomplete', 'uncomplete']
+                        
+            elif 'upgrade_dataset/add_ownership_view' in h.full_current_url():
+                stages = ['complete', 'complete','active', 'uncomplete', 'uncomplete']
+            
+            elif 'smw/machines_view' in h.full_current_url():
+                stages = ['complete', 'complete','complete', 'active', 'uncomplete']
+            
+            elif '/smw/add_samples_view' in h.full_current_url():
+                stages = ['complete', 'complete','complete', 'complete', 'active']
+        
+        return stages
+
+
+    @staticmethod
+    def set_orders():
+        if Helper.which_sfb() == '1368':
+            return ['second', 'third', 'forth']
+        else:
+            return ['second', 'third', 'forth']
+    
+
+
+    @staticmethod
+    def set_titles():
+        if Helper.which_sfb() == '1368':
+            return ['Add data', 'Metadata', 'Ownership', 'Equipment(s)'] 
+        else:
+            return ['Add data', 'Ownership', 'Equipment(s)', 'Sample(s)'] 
+
+    
     
