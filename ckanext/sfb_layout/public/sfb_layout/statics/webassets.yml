@@ -4,6 +4,12 @@ sfb1368-css:
     - ckan_style.css
 
 
+search-css:
+  output: ckanext-sfb-layout/%(version)s_my.css
+  contents:
+    - search.css
+
+
 sfb1153-css:
   output: ckanext-sfb-layout/%(version)s_my.css
   contents:
