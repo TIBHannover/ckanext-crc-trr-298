@@ -5,7 +5,10 @@
 {% set search_class = search_class if search_class else 'search-giant' %}
 {% set no_bottom_border = no_bottom_border if no_bottom_border else false %}
 {% set form_id = form_id if form_id else false %}
-{% asset 'ckanext-sfb-layout/search-css' %}
+
+{% if h.is_enabled("sample_link") %}
+    {% asset 'ckanext-sfb-layout/search-css' %}
+{% endif %}
 
 <form {% if form_id %}id="{{ form_id }}" {% endif %}class="search-form{% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
 
@@ -22,7 +25,9 @@
     </div>
   {% endblock %}
 
-  <div id="sample_search_info_box">{{_('Search for Sample linked Data Resources: <i> Sample:[SampleID] e.g. Sample:A0001 <i/>')}}</div>
+    {% if h.is_enabled("sample_link") %}
+        <div id="sample_search_info_box">{{_('Search for Sample linked Data Resources: <i> Sample:[SampleID] e.g. Sample:A0001 <i/>')}}</div>
+    {% endif %}
 
   {% block search_search_fields %}
     {% if fields -%}
