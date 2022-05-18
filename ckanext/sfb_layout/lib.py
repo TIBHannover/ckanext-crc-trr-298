@@ -111,4 +111,12 @@ class Helper():
         else:
             return query
     
+
+
+    @staticmethod
+    def is_selection_needed(form_id):
+        if form_id in ["organization-search-form", "group-search-form"]:
+            return False
+        return True
+    
     

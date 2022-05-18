@@ -18,7 +18,7 @@
       <div class="col-sm-9">
         <div class="input-group search-input-group">
           <input id="field-giant-search" type="hidden" class="form-control input-lg" name="q" value="{{ query }}">
-          <input aria-label="{% block header_site_search_label %}{{ placeholder }}{% endblock %}" id="field-giant-search-mimic" type="text" class="form-control input-lg" name="q-mimic" value="{{ h.query_prepration(query) }}" autocomplete="off" placeholder="{{ placeholder }}">
+          <input aria-label="{% block header_site_search_label %}{{ placeholder }}{% endblock %}" id="field-giant-search-mimic" type="text" class="form-control input-lg" value="{{ h.query_prepration(query) }}" autocomplete="off" placeholder="{{ placeholder }}">
           {% block search_input_button %}
           <span class="input-group-btn">
             <button class="btn btn-default btn-lg"  type="submit" value="search" aria-label="{{_('Submit')}}">
@@ -28,14 +28,16 @@
           {% endblock %}    
         </div>
       </div>
-      <div class="col-sm-3">
-        <label for="search-type-dropdown">{{_('Search within')}}</label>
-        <select name="search-type-selection" id="search-type-dropdown">
-          <option value="0">Not specified</option>
-          <option value="column">Search in csv/xlsx resource Columns</option>
-          <option value="sample">Search in linked Samples</option>
-        </select>
-      </div>
+      {% if h.is_selection_needed(form_id): %}
+        <div class="col-sm-3">
+          <label for="search-type-dropdown">{{_('Search within')}}</label>
+          <select  id="search-type-dropdown">
+            <option value="0">Not specified</option>
+            <option value="column">Search in csv/xlsx resource Columns</option>
+            <option value="sample">Search in linked Samples</option>
+          </select>
+        </div>
+      {% endif %}      
     </div>
     <hr>
   {% endblock %}
