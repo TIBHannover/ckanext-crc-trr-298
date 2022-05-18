@@ -28,12 +28,14 @@
           {% endblock %}    
         </div>
       </div>
-      {% if h.is_selection_needed(form_id): %}
+      {% if h.is_selection_needed(form_id) and h.is_enabled("sfb_search"): %}
         <div class="col-sm-3">
           <label for="search-type-dropdown">{{_('Search within')}}</label>
           <select  id="search-type-dropdown">
             <option value="0">Not specified</option>
-            <option value="column">Search in csv/xlsx resource Columns</option>
+            {% if h.which_sfb() == "1368" %}
+              <option value="column">Search in csv/xlsx resource Columns</option>
+            {% endif %}
             <option value="sample">Search in linked Samples</option>
           </select>
         </div>
