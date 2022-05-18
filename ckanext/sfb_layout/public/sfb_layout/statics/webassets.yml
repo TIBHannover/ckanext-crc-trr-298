@@ -33,3 +33,17 @@ stages-js:
       - vendor/jquery.ui.core
   contents:
     - stages.js
+
+
+search-js:  
+  output: ckanext-sfb-layout/%(version)s_my.js
+  extra:
+    preload:
+      - base/main
+      - vendor/vendor
+      - vendor/bootstrap
+      - vendor/jquery
+      - vendor/jquery.ui.core
+      - vendor/select2
+  contents:
+    - search.js

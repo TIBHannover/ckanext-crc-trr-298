@@ -6,6 +6,7 @@
 {% set no_bottom_border = no_bottom_border if no_bottom_border else false %}
 {% set form_id = form_id if form_id else false %}
 
+{% asset 'ckanext-sfb-layout/search-js' %}
 {% if h.is_enabled("sample_link") %}
     {% asset 'ckanext-sfb-layout/search-css' %}
 {% endif %}
