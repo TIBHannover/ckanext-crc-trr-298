@@ -32,11 +32,11 @@
         <div class="col-sm-3">
           <label for="search-type-dropdown">{{_('Search within')}}</label>
           <select  id="search-type-dropdown">
-            <option value="0">Not specified</option>
-            {% if h.which_sfb() == "1368" %}
-              <option value="column">Search in csv/xlsx resource Columns</option>
+            <option value="0">Not specified</option>            
+            <option value="column">Search in csv/xlsx resource Columns</option>            
+            {% if h.which_sfb() == "1153" %}
+              <option value="sample">Search in linked Samples</option>
             {% endif %}
-            <option value="sample">Search in linked Samples</option>
           </select>
         </div>
       {% endif %}      
