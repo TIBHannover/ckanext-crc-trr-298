@@ -100,5 +100,15 @@ class Helper():
         else:
             return ['Add data', 'Ownership', 'Equipment(s)', 'Sample(s)'] 
 
+
+
+    @staticmethod
+    def search_query_prepration(query):
+        if "sample:" in query:
+            return query.split(":")[1]
+        elif "column:" in query:
+            return query.split(":")[1]
+        else:
+            return query
     
     
