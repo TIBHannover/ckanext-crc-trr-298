@@ -27,11 +27,9 @@
           </span>
           {% endblock %}    
         </div>
-        {% if h.is_enabled("sample_link") %}
-            <div id="sample_search_info_box">{{_('Search for Sample linked Data Resources: <i> sample:[sampleID] e.g. sample:A0001 <i/>')}}</div>
-        {% endif %}
       </div>
       <div class="col-sm-3">
+        <label for="search-type-dropdown">{{_('Search within')}}</label>
         <select name="search-type-selection" id="search-type-dropdown">
           <option value="0">Not specified</option>
           <option value="column">Search in csv/xlsx resource Columns</option>
