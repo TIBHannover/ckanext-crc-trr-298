@@ -10,11 +10,23 @@
 {% if h.is_enabled("sample_link") %}
     {% asset 'ckanext-sfb-layout/search-css' %}
 {% endif %}
-
+<hr>
 <form {% if form_id %}id="{{ form_id }}" {% endif %}class="search-form{% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
 
   {% block search_input %}
     <div class="row">
+    {% if h.is_selection_needed(form_id) and h.is_enabled("sfb_search"): %}
+        <div class="col-sm-3">
+          <label for="search-type-dropdown">{{_('Search within')}}</label>
+          <select  id="search-type-dropdown">
+            <option value="0">all fields</option>            
+            <option value="column">Search in csv/xlsx resource Columns</option>            
+            {% if h.which_sfb() == "1153" %}
+              <option value="sample">Search in linked Samples</option>
+            {% endif %}
+          </select>
+        </div>
+      {% endif %}      
       <div class="col-sm-9">
         <div class="input-group search-input-group">
           <input id="field-giant-search" type="hidden" class="form-control input-lg" name="q" value="{{ query }}">
@@ -28,18 +40,6 @@
           {% endblock %}    
         </div>
       </div>
-      {% if h.is_selection_needed(form_id) and h.is_enabled("sfb_search"): %}
-        <div class="col-sm-3">
-          <label for="search-type-dropdown">{{_('Search within')}}</label>
-          <select  id="search-type-dropdown">
-            <option value="0">Not specified</option>            
-            <option value="column">Search in csv/xlsx resource Columns</option>            
-            {% if h.which_sfb() == "1153" %}
-              <option value="sample">Search in linked Samples</option>
-            {% endif %}
-          </select>
-        </div>
-      {% endif %}      
     </div>
     <hr>
   {% endblock %}
