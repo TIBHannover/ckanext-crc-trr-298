@@ -16,6 +16,8 @@ $(document).ready(function(){
             }
             $('.search-form')[0].submit();
         }
-        $('.search-form')[0].submit();        
+        else{
+            $('.search-form')[0].submit();        
+        }        
     });
 });

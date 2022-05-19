@@ -11,7 +11,6 @@
     {% asset 'ckanext-sfb-layout/search-css' %}
 {% endif %}
 <hr>
-<form {% if form_id %}id="{{ form_id }}" {% endif %}class="search-form{% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">
 
   {% block search_input %}
     <div class="row">
@@ -26,7 +25,8 @@
             {% endif %}
           </select>
         </div>
-      {% endif %}      
+      {% endif %}
+      <form {% if form_id %}id="{{ form_id }}" {% endif %}class="search-form{% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">      
       <div class="col-sm-9">
         <div class="input-group search-input-group">
           <input id="field-giant-search" type="hidden" class="form-control input-lg" name="q" value="{{ query }}">
