@@ -6,20 +6,18 @@
 {% set no_bottom_border = no_bottom_border if no_bottom_border else false %}
 {% set form_id = form_id if form_id else false %}
 
+{% asset 'ckanext-sfb-layout/search-css' %}
 {% asset 'ckanext-sfb-layout/search-js' %}
-{% if h.is_enabled("sample_link") %}
-    {% asset 'ckanext-sfb-layout/search-css' %}
-{% endif %}
-<hr>
 
-  {% block search_input %}
-    <div class="row">
+<hr>
+{% block search_input %}
+  <div class="row">
     {% if h.is_selection_needed(form_id) and h.is_enabled("sfb_search"): %}
         <div class="col-sm-3">
-          <label for="search-type-dropdown">{{_('Search within')}}</label>
+          <label for="search-type-dropdown">{{_('Search type')}}</label>
           <select  id="search-type-dropdown">
-            <option value="0">all fields</option>            
-            <option value="column">Search in csv/xlsx resource Columns</option>            
+            <option value="0">Simple Search</option>            
+            <option value="column">Search in csv/xlsx resource (files) Columns</option>            
             {% if h.which_sfb() == "1153" %}
               <option value="sample">Search in linked Samples</option>
             {% endif %}
@@ -51,7 +49,7 @@
 
   {% block search_sortby %}
     {% if sorting %}
-      <div class="form-select form-group control-order-by">
+      <div class="form-select form-group control-order-by" id="result-order-selection">
         <label for="field-order-by">{{ _('Order by') }}</label>
         <select id="field-order-by" name="sort" class="form-control">
           {% for label, value in sorting %}

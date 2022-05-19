@@ -1,4 +1,7 @@
-#sample_search_info_box{
-    margin-top: -25px;
-    margin-bottom: 50px;
+#field-order-by{
+    width: 100% !important;    
+}
+
+#result-order-selection{
+    float: right;
 }
