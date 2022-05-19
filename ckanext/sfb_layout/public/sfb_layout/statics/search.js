@@ -1,5 +1,7 @@
 $(document).ready(function(){
+    let pre_select_value = $("#selected_search_type").val();
     $('#search-type-dropdown').select2({ width: '100%' });
+    $('#search-type-dropdown').select2('val', pre_select_value);
 
     $('.search-form').submit(function(e){        
         if($('#search-type-dropdown').length !== 0){

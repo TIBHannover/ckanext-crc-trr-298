@@ -105,11 +105,11 @@ class Helper():
     @staticmethod
     def search_query_prepration(query):
         if "sample:" in query:
-            return query.split(":")[1]
+            return [query.split(":")[1], "sample"]
         elif "column:" in query:
-            return query.split(":")[1]
+            return [query.split(":")[1], "column"]
         else:
-            return query
+            return [query, '0']
     
 
 
