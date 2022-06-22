@@ -4,16 +4,42 @@ sfb1368-css:
     - ckan_style.css
 
 
-search-css:
-  output: ckanext-sfb-layout/%(version)s_my.css
+sfb1368-js:  
+  output: ckanext-sfb-layout/%(version)s_my.js
+  extra:
+    preload:
+      - base/main
+      - vendor/vendor
+      - vendor/bootstrap
+      - vendor/jquery
+      - vendor/jquery.ui.core
   contents:
-    - search.css
+    - ckan_1368.js
 
 
 sfb1153-css:
   output: ckanext-sfb-layout/%(version)s_my.css
   contents:
     - ckan_1153_style.css
+
+sfb1153-js:  
+  output: ckanext-sfb-layout/%(version)s_my.js
+  extra:
+    preload:
+      - base/main
+      - vendor/vendor
+      - vendor/bootstrap
+      - vendor/jquery
+      - vendor/jquery.ui.core
+  contents:
+    - ckan_1153.js
+
+
+
+search-css:
+  output: ckanext-sfb-layout/%(version)s_my.css
+  contents:
+    - search.css
 
 
 stages-css:
