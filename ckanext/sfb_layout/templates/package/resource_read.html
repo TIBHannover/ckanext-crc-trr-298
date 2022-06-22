@@ -88,6 +88,28 @@
             {% elif res.url %}
               <p class="text-muted break-word">{{ _('URL:') }} {{ res.url }}</p>
             {% endif %}
+            {% if h.is_enabled("semantic_media_wiki") %}
+                {% asset 'ckanext-semantic-media-wiki/resource-machine-js' %}
+                {% set resource_id = resource['id']  %}
+                {% set dest_url = h.url_for('semantic_media_wiki.get_resource_machine', id=resource_id, _external=True) %}
+                <input type="hidden" id="get_link_url" value='{{dest_url}}'>
+                
+                <div id="machine_link_box">
+                    {{_('Linked Equipment')}}: <div id="equipment_list"></div>
+                </div>    
+                <br><br>
+            {% endif %}
+            {% if h.is_enabled("sample_link") %}
+                {% asset 'ckanext-sample-link/resource-sample-js' %}
+                {% set resource_id = resource['id']  %}
+                {% set dest_url = h.url_for('sample_link.get_resource_sample', id=resource_id, _external=True) %}
+                <input type="hidden" id="get_sample_url" value='{{dest_url}}'>
+                
+                <div id="sample_link_box">
+                    <b>{{_('Linked Samples')}}:</b>  <div id="sample_list"></div>
+                </div>    
+                <br><br>
+            {% endif %}
           {% endblock %}
           <div class="prose notes" property="rdfs:label">
             {% if res.description %}
@@ -171,6 +193,7 @@
     {% if res %}
       <section class="module">
         {% block resource_additional_information_inner %}
+        {% if h.is_enabled("resource_custom_metadata") %}
         {# Remove ckan resource metadata and replace it with resource custom metadata (SFB specific metadata) table  #}
             <div class="module-content">
                 <h2>{{ _('SFB specific metadata') }}</h2>
@@ -205,7 +228,8 @@
                     
                     </tbody>
                 </table>
-        </div>
+            </div>
+        {% endif %}
         {% endblock %}
       </section>
     {% endif %}
