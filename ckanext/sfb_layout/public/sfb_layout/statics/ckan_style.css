@@ -21,6 +21,10 @@
  display: inline-block;
 }
 
+#resource_custom_metadata_table{
+  width: 50% !important;
+}
+
 
 /* =====================================================
    The "account masthead" bar across the top of the site
