@@ -27,6 +27,12 @@
           {% block resource_actions %}
           <ul>
             {% block resource_actions_inner %}
+            {# data comparision button #}
+            {% if h.is_enabled("data_comparision") %}
+                {%  set dest = h.url_for('data_comparision.base_view', package_name=pkg_dict['name'], resId=resource['id'] , _external=True) %}
+                <a href="{{dest}}" class="btn btn-primary" type="button">{{_('Data Comparision')}}</a>
+            {% endif %}
+
             {% if h.check_access('package_update', {'id':pkg.id }) and not is_activity_archive %}
               <li>{% link_for _('Manage'), named_route=pkg.type ~ '_resource.edit', id=pkg.name, resource_id=res.id, class_='btn btn-default', icon='wrench' %}</li>
             {% endif %}
@@ -88,6 +94,8 @@
             {% elif res.url %}
               <p class="text-muted break-word">{{ _('URL:') }} {{ res.url }}</p>
             {% endif %}
+
+            {# machine links #}
             {% if h.is_enabled("semantic_media_wiki") %}
                 {% asset 'ckanext-semantic-media-wiki/resource-machine-js' %}
                 {% set resource_id = resource['id']  %}
@@ -99,6 +107,8 @@
                 </div>    
                 <br><br>
             {% endif %}
+
+             {# sample links #}
             {% if h.is_enabled("sample_link") %}
                 {% asset 'ckanext-sample-link/resource-sample-js' %}
                 {% set resource_id = resource['id']  %}
