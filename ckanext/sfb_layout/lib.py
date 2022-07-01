@@ -22,7 +22,7 @@ class Helper():
             return '1153'
         else:
             # localhost
-            return '1368'
+            return '1153'
     
 
     @staticmethod
@@ -100,5 +100,23 @@ class Helper():
         else:
             return ['Add data', 'Ownership', 'Equipment(s)', 'Sample(s)'] 
 
+
+
+    @staticmethod
+    def search_query_prepration(query):
+        if "sample:" in query:
+            return [query.split(":")[1], "sample"]
+        elif "column:" in query:
+            return [query.split(":")[1], "column"]
+        else:
+            return [query, '0']
+    
+
+
+    @staticmethod
+    def is_selection_needed(form_id):
+        if form_id in ["organization-search-form", "group-search-form"]:
+            return False
+        return True
     
     

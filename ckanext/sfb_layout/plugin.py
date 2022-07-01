@@ -22,5 +22,7 @@ class SfbLayoutPlugin(plugins.SingletonPlugin):
             'stages_count': Helper.stages_count, 
             'set_stages': Helper.set_stages,
             'set_orders': Helper.set_orders,
-            'set_titles': Helper.set_titles
+            'set_titles': Helper.set_titles,
+            'query_prepration': Helper.search_query_prepration,
+            'is_selection_needed': Helper.is_selection_needed
         }

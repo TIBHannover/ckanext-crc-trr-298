@@ -20,3 +20,7 @@
   width: 90%;
   display: inline-block;
  }
+
+#resource_custom_metadata_table{
+  width: 50% !important;
+}
