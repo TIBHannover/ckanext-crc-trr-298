@@ -14,19 +14,25 @@
   <input type="hidden" id="selected_search_type" value="{{h.query_prepration(query)[1]}}">
   <div class="row">
     {% if h.is_selection_needed(form_id) and h.is_enabled("sfb_search"): %}
-        <div class="col-sm-3">
+        <div class="col-sm-4">
           <label for="search-type-dropdown">{{_('Search type')}}</label>
           <select  id="search-type-dropdown">
             <option value="0">Simple Search</option>            
             <option value="column">Search in csv/xlsx resource (files) Columns</option>            
             {% if h.which_sfb() == "1153" %}
               <option value="sample">Search in linked Samples</option>
+            {% else %}
+              <option value="sample">Search in Material or Material Combination</option>
+              <option value="sample">Search in Surface Preparation</option>
+              <option value="sample">Search in Atmosphere</option>
+              <option value="sample">Search in Data type</option>
+              <option value="sample">Search in Measurement/Analysis Method</option>
             {% endif %}
           </select>
         </div>
       {% endif %}
       <form {% if form_id %}id="{{ form_id }}" {% endif %}class="search-form{% if no_bottom_border %} no-bottom-border{% endif %}" method="get" data-module="select-switch">      
-      <div class="col-sm-9">
+      <div class="col-sm-8">
         <div class="input-group search-input-group">
           <input id="field-giant-search" type="hidden" class="form-control input-lg" name="q" value="{{ query }}">
           <input aria-label="{% block header_site_search_label %}{{ placeholder }}{% endblock %}" id="field-giant-search-mimic" type="text" class="form-control input-lg" value="{{ h.query_prepration(query)[0] }}" autocomplete="off" placeholder="{{ placeholder }}">
