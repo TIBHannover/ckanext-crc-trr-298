@@ -215,12 +215,7 @@
   {% block resource_additional_information %}
     {% if res %}
       <section class="module">
-        {% block resource_additional_information_inner %}
-        
-          {% autoescape true %}
-            {% block resource_data_dictionary  %}      
-            {% endblock %}
-          {% endautoescape %}        
+        {% block resource_additional_information_inner %}      
         {% if h.is_enabled("resource_custom_metadata") %}
         {# Remove ckan resource metadata and replace it with resource custom metadata (SFB specific metadata) table  #}
             <div class="module-content">
