@@ -108,6 +108,16 @@ class Helper():
             return [query.split(":")[1], "sample"]
         elif "column:" in query:
             return [query.split(":")[1], "column"]
+        elif "material_combination:" in query:
+            return [query.split(":")[1], "material_combination"]
+        elif "surface_preparation:" in query:
+            return [query.split(":")[1], "surface_preparation"]
+        elif "atmosphere:" in query:
+            return [query.split(":")[1], "atmosphere"]
+        elif "data_type:" in query:
+            return [query.split(":")[1], "data_type"]
+        elif "analysis_method:" in query:
+            return [query.split(":")[1], "analysis_method"]
         else:
             return [query, '0']
     
