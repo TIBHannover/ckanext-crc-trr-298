@@ -129,27 +129,29 @@
                         <td><div id="sample_list"></td>  
                       </tr>
                     {% endif %}
-                    <tr>
-                        <th scope="row">{{ _('Material or Material Combination') }}</th>
-                        <td>{{ res.material_combination }}</td>
-                    </tr>    
-                    <tr>
-                        <th scope="row">{{ _('Surface Preparation') }}</th>
-                        <td>{{ res.surface_preparation }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">{{ _('Atmosphere') }}</th>
-                        <td>{{ res.atmosphere }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">{{ _('Data type (mechanical, chemical ...)') }}</th>
-                        <td>{{ res.data_type }}</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">{{ _('Measurement/Analysis Method') }}</th>
-                        <td>{{ res.analysis_method }}</td>
-                    </tr>
-                    
+                    {# sfb metadata #}
+                    {% if h.is_enabled("resource_custom_metadata") %}
+                        <tr>
+                            <th scope="row">{{ _('Material or Material Combination') }}</th>
+                            <td>{{ res.material_combination }}</td>
+                        </tr>    
+                        <tr>
+                            <th scope="row">{{ _('Surface Preparation') }}</th>
+                            <td>{{ res.surface_preparation }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{ _('Atmosphere') }}</th>
+                            <td>{{ res.atmosphere }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{ _('Data type (mechanical, chemical ...)') }}</th>
+                            <td>{{ res.data_type }}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">{{ _('Measurement/Analysis Method') }}</th>
+                            <td>{{ res.analysis_method }}</td>
+                        </tr>
+                    {% endif %}                                        
                     </tbody>
                 </table>
             </div>
