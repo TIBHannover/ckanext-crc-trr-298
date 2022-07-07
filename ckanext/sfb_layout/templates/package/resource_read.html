@@ -216,6 +216,9 @@
     {% if res %}
       <section class="module">
         {% block resource_additional_information_inner %}
+        {% block resouce_data_dictionary_headers %}
+         
+        {% endblock %}
         {% if h.is_enabled("resource_custom_metadata") %}
         {# Remove ckan resource metadata and replace it with resource custom metadata (SFB specific metadata) table  #}
             <div class="module-content">
