@@ -60,21 +60,23 @@ Dictionary with search facets(or `c.search_facets` if not provided)
 		    {% endblock %}
 		    {% block facet_list_items %}
 			{% with items = items or h.get_facet_items_dict(name, search_facets or c.search_facets) %}
-			    {% if items %}
+			    {% if items %}				
 				<nav aria-label="{{ title }}">
 				    <ul class="{{ nav_class or 'list-unstyled nav nav-simple nav-facet' }}">
 					{% for item in items %}
-					    {% set href = h.remove_url_param(name, item.name, extras=extras, alternative_url=alternative_url) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras, alternative_url=alternative_url) %}
-					    {% set label = label_function(item) if label_function else item.display_name %}
-					    {% set label_truncated = label if not label_function else label %}
-					    {% set count = count_label(item['count']) if count_label else ('%d' % item['count']) %}
-					    <li class="{{ nav_item_class or 'nav-item' }}{% if item.active %} active{% endif %}">
-						<a href="{{ href }}" title="{{ label if label != label_truncated else '' }}">
-						    <span class="item-label">{{ label_truncated }}</span>
-						    <span class="hidden separator"> - </span>
-						    <span class="item-count badge">{{ count }}</span>
-						</a>
-					    </li>
+						{% set label = label_function(item) if label_function else item.display_name %}
+						{% if  label != "0" %}
+							{% set href = h.remove_url_param(name, item.name, extras=extras, alternative_url=alternative_url) if item.active else h.add_url_param(new_params={name: item.name}, extras=extras, alternative_url=alternative_url) %}					    
+							{% set label_truncated = label if not label_function else label %}
+							{% set count = count_label(item['count']) if count_label else ('%d' % item['count']) %}
+							<li class="{{ nav_item_class or 'nav-item' }}{% if item.active %} active{% endif %}">
+							<a href="{{ href }}" title="{{ label if label != label_truncated else '' }}">
+								<span class="item-label">{{ label_truncated }}</span>
+								<span class="hidden separator"> - </span>
+								<span class="item-count badge">{{ count }}</span>
+							</a>
+							</li>
+						{% endif %}					    
 					{% endfor %}
 				    </ul>
 				</nav>
