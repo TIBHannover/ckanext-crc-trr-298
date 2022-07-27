@@ -118,6 +118,8 @@ class Helper():
             return [query.split(":")[1], "data_type"]
         elif "analysis_method:" in query:
             return [query.split(":")[1], "analysis_method"]
+        elif "publication:" in query:
+            return [query.split(":")[1], "publication"]
         else:
             return [query, '0']
     

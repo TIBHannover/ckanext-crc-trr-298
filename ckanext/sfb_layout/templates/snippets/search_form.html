@@ -18,7 +18,8 @@
           <label for="search-type-dropdown">{{_('Search type')}}</label>
           <select  id="search-type-dropdown">
             <option value="0">Simple Search</option>            
-            <option value="column">Search in csv/xlsx resource (files) Columns</option>            
+            <option value="column">Search in csv/xlsx resource (files) Columns</option>
+            <option value="publication">Search based on Publication</option>      
             {% if h.which_sfb() == "1153" %}
               <option value="sample">Search in linked Samples</option>
             {% else %}
