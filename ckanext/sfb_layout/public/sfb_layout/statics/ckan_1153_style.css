@@ -26,6 +26,6 @@
 }
 
 .custom-image-view-warpper > img{
-  max-width: 50%;
-  height: auto;
+  max-width: 40% !important;
+  max-height: auto !important;
 }
