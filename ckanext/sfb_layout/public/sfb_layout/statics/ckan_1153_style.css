@@ -24,3 +24,8 @@
 #data-resource-sfb-table{
   width: 80% !important;
 }
+
+.custom-image-view-warpper > img{
+  max-width: 50%;
+  height: auto;
+}

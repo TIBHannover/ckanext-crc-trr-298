@@ -25,6 +25,11 @@
   width: 80% !important;
 }
 
+.custom-image-view-warpper > img{
+  max-width: 50%;
+  height: auto;
+}
+
 
 /* =====================================================
    The "account masthead" bar across the top of the site
