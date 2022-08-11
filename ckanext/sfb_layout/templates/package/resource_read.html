@@ -162,7 +162,17 @@
                 <input type="hidden" id="resource_plot_preview_url" value={{h.url_for('data_comparision.get_one_resource_plot_data', resource_id=resource['id'] , _external=True)}}>
                 <div class="row"  id="analysis-result-area">
                     <div class="col-sm-12" id="resource-preview-canvas-area">                        
-                        <div class="col-sm-4 plot-col-box">                      
+                        <div class="col-sm-4 plot-col-box">
+                            <div class="row text-center attemp-to-plot-loading">
+                              <h3>Attemp to Plot</h3>
+                              <div class="col-sm-12">
+                                  <div class="jumping-dots-loader">
+                                      <span></span>
+                                      <span></span>
+                                      <span></span>
+                                  </div>
+                              </div>
+                          </div>   
                             <canvas id="resultPlot" width="300" height="200"></canvas>    
                         </div>
                     </div>              
