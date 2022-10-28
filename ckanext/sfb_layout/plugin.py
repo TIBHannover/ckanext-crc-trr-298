@@ -24,5 +24,6 @@ class SfbLayoutPlugin(plugins.SingletonPlugin):
             'set_orders': Helper.set_orders,
             'set_titles': Helper.set_titles,
             'query_prepration': Helper.search_query_prepration,
-            'is_selection_needed': Helper.is_selection_needed
+            'is_selection_needed': Helper.is_selection_needed,
+            'get_export_url': Helper.get_export_url
         }
