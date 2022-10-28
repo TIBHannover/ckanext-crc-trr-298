@@ -1,9 +1,7 @@
 # encoding: utf-8
-from flask import render_template, request, redirect, app
+
 import ckan.plugins.toolkit as toolkit
 import ckan.lib.helpers as h
-import ckan.model as model
-import ckan.logic as logic
 
 
 
@@ -131,4 +129,34 @@ class Helper():
             return False
         return True
     
+
+    @staticmethod
+    def get_export_url(dataset_name, format):        
+        base_url = toolkit.config.get('ckan.site_url')
+        if base_url[len(base_url) - 1] != '/':
+            base_url += '/'
+              
+        if toolkit.config.get('ckan.root_path'):
+            return base_url + toolkit.config.get('ckan.root_path') + '/dataset/' + dataset_name + format
+        return base_url + 'dataset/' + dataset_name + format
+
+
+   
+    def get_json(dataset_name):
+        package = toolkit.get_action('package_show')({}, {'name_or_id': dataset_name})
+        if not Helper.check_access_show_package(package['id']):
+                return toolkit.abort(403, "Not Authorized")
+       
+        return package
+       
+
+    def check_access_show_package(package_id):
+        context = {'user': toolkit.g.user, 'auth_user_obj': toolkit.g.userobj}
+        data_dict = {'id':package_id}
+        try:
+            toolkit.check_access('package_show', context, data_dict)
+            return True
+
+        except toolkit.NotAuthorized:
+            return False
     
