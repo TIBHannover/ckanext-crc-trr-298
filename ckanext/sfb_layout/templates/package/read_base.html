@@ -13,6 +13,11 @@
         </div>
         <div class="row dcat-export-link">
             <div class="col-sm-12">
+                <a href={{ h.url_for('sfb_layout.get_json', dataset_name=pkg_dict['name'], _external=True) }} target="_blank"><i class="fa fa-external-link"></i> JSON</a>
+            </div>
+        </div>  
+        <div class="row dcat-export-link">
+            <div class="col-sm-12">
                 <a href={{ h.get_export_url(pkg_dict['name'], '.xml')}} target="_blank"><i class="fa fa-external-link"></i> XML</a>
             </div>
         </div>

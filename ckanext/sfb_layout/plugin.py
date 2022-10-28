@@ -1,11 +1,13 @@
 import ckan.plugins as plugins
 import ckan.plugins.toolkit as toolkit
 from ckanext.sfb_layout.lib import Helper
+from flask import Blueprint
 
 
 class SfbLayoutPlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
+    plugins.implements(plugins.IBlueprint)
 
     # IConfigurer
 
@@ -13,6 +15,23 @@ class SfbLayoutPlugin(plugins.SingletonPlugin):
         toolkit.add_template_directory(config_, 'templates')
         toolkit.add_public_directory(config_, 'public/sfb_layout')
         toolkit.add_resource('public/sfb_layout/statics', 'ckanext-sfb-layout')
+    
+
+     #plugin Blueprint
+
+    def get_blueprint(self):
+
+        blueprint = Blueprint(self.name, self.__module__)
+        blueprint.template_folder = u'templates'
+
+        blueprint.add_url_rule(
+            u'/sfb_layout/get_json/<dataset_name>',
+            u'get_json',
+            Helper.get_json,
+            methods=['GET']
+            )
+
+        return blueprint
         
     
 
