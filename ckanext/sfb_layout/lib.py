@@ -133,12 +133,11 @@ class Helper():
     @staticmethod
     def get_export_url(dataset_name, format):        
         base_url = toolkit.config.get('ckan.site_url')
-        if base_url[len(base_url) - 1] != '/':
-            base_url += '/'
-              
-        if toolkit.config.get('ckan.root_path'):
-            return base_url + toolkit.config.get('ckan.root_path') + '/dataset/' + dataset_name + format
-        return base_url + 'dataset/' + dataset_name + format
+        path = toolkit.config.get('ckan.root_path')                      
+        if path:
+            path = path.split("{{LANG}}")[0]
+            return base_url + path + 'dataset/' + dataset_name + format
+        return base_url + '/dataset/' + dataset_name + format
 
 
    
