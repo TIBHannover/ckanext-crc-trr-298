@@ -2,4 +2,5 @@ trr298-css:
   output: ckanext-crc-trr-298%(version)s_my.css
   contents:
     - trr298_style.css
+    - ckan_style.css
 
