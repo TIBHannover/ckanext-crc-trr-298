@@ -1,9 +1,6 @@
-# ckanext-sfb-layout
+# ckanext-crc-trr-298
 
-| Plugin    | Description   |
-| --------------- | ------------- |
-|  **sfb_layout** | This plugin modifies the ckan general style for the site content, headers. and footer    |
-
+The CKAN extension for the CRC TRR-298 project Data Repository. 
 
 ## Requirements
 
@@ -25,12 +22,12 @@ To install ckanext-sfb-layout:
 
 2. Clone the source and install it on the virtualenv
 
-        git clone https://github.com//ckanext-sfb-layout.git
-        cd ckanext-sfb-layout
+        git clone https://github.com/TIBHannover/ckanext-crc-trr-298.git
+        cd ckanext-crc-trr-298
         pip install -e .
         pip install -r requirements.txt
 
-3. Add `sfb_layout` to the `ckan.plugins` setting in your CKAN config file (by default the config file is located at `/etc/ckan/default/ckan.ini`).
+3. Add `trr_298` to the `ckan.plugins` setting in your CKAN config file (by default the config file is located at `/etc/ckan/default/ckan.ini`).
 
 4. Restart CKAN. For example if you've deployed CKAN with Nginx on Ubuntu:
 
