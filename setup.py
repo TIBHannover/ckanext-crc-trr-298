@@ -11,19 +11,19 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
     long_description = f.read()
 
 setup(
-    name='''ckanext-sfb-layout''',
+    name='''ckanext-crc-trr-298''',
 
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # http://packaging.python.org/en/latest/tutorial.html#version
     version='0.0.1',
 
-    description='''Extending CKAN layout for SFBs projects''',
+    description='''Extending CKAN layout for TRR-298 CRC projects''',
     long_description=long_description,
     long_description_content_type="text/markdown",
 
     # The project's main homepage.
-    url='https://github.com//ckanext-sfb-layout',
+    url='https://github.com/TIBHannover/ckanext-crc-trr-298.git',
 
     # Author details
     author='''Pooya''',

@@ -90,7 +90,7 @@
    ===================================================== */
 
    .account-masthead {
-    background-color: #217032;
+    background-color: #abd4fa;
 }
 
 /* The text and icons in the user account info. */
@@ -101,7 +101,7 @@
    over them. */
 .account-masthead .account ul li a:hover {
   color: rgba(255, 255, 255, 0.7);
-  background-color:#1D602B;
+  background-color:#abd4fa;
 }
 
 
@@ -110,18 +110,18 @@
    ======================================================================== */
 
 .masthead {
-  background-color: #2D9642;
+  background-color: #abd4fa;
 }
 /* The "navigation pills" in the masthead (the links to Datasets,
    Organizations, etc) when the user's pointer hovers over them. */
 .masthead .navigation .nav-pills li a:hover {
-  background-color: #217032;
+  background-color: #abd4fa;
   color: white;
 }
 /* The "active" navigation pill (for example, when you're on the /dataset page
    the "Datasets" link is active). */
 .masthead .navigation .nav-pills li.active a {
-  background-color: #217032;
+  background-color: #abd4fa;
 }
 /* The "box shadow" effect that appears around the search box when it
    has the keyboard cursor's focus. */
@@ -147,11 +147,11 @@
 /* Change the colors of the "Search Your Data" box. */
 .homepage .module-search .module-content {
   color: rgba(255, 255, 255, 0.8);
-  background-color: #2D9642;
+  background-color: #abd4fa;
 }
 /* Change the background color of the "Popular Tags" box. */
 .homepage .module-search .tags {
-  background-color: #237434;
+  background-color: #abd4fa;
 }
 /* Remove some padding. This makes the bottom edges of the "Welcome to CKAN"
    and "Search Your Data" boxes line up. */
@@ -173,7 +173,7 @@
 
 .site-footer,
 body {
-  background-color: #2D9642;
+  background-color: #abd4fa;
 }
 /* The text in the footer. */
 .site-footer,

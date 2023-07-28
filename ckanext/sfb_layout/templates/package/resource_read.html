@@ -106,78 +106,10 @@
                           <p class="text-muted break-word">{{ _('URL:') }} {{ res.url }}</p>
                           <td>{{ res.url }}</td>
                         {% endif %}                        
-                    </tr>                                                            
-                    {# machine links #}
-                    {% if h.is_enabled("machine_link") %}
-                      {% asset 'ckanext-semantic-media-wiki/resource-machine-js' %}
-                      <tr>                           
-                        {% set resource_id = resource['id']  %}
-                        {% set dest_url = h.url_for('machine_link.get_resource_machine', id=resource_id, _external=True) %}                            
-                        <input type="hidden" id="get_link_url" value='{{dest_url}}'>
-                        <th scope="row">{{ _('Linked Equipment') }}</th>
-                        <td><div id="equipment_list"></div></td>
-                      </tr>
-                    {% endif %}
-                    {# sample links #}
-                    {% if h.is_enabled("sample_link") %}
-                      {% asset 'ckanext-sample-link/resource-sample-js' %}
-                      <tr>                          
-                        {% set resource_id = resource['id']  %}
-                        {% set dest_url = h.url_for('sample_link.get_resource_sample', id=resource_id, _external=True) %}
-                        <input type="hidden" id="get_sample_url" value='{{dest_url}}'>
-                        <th scope="row">{{ _('Linked Samples') }}</th>
-                        <td><div id="sample_list"></td>  
-                      </tr>
-                    {% endif %}
-                    {# sfb metadata #}
-                    {% if h.is_enabled("resource_custom_metadata") %}
-                        <tr>
-                            <th scope="row">{{ _('Material or Material Combination') }}</th>
-                            <td>{{ res.material_combination }}</td>
-                        </tr>    
-                        <tr>
-                            <th scope="row">{{ _('Surface Preparation') }}</th>
-                            <td>{{ res.surface_preparation }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">{{ _('Atmosphere') }}</th>
-                            <td>{{ res.atmosphere }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">{{ _('Data type (mechanical, chemical ...)') }}</th>
-                            <td>{{ res.data_type }}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">{{ _('Measurement/Analysis Method') }}</th>
-                            <td>{{ res.analysis_method }}</td>
-                        </tr>
-                    {% endif %}                                        
+                    </tr>                                                                           
                     </tbody>
                 </table>
-            </div>
-
-            {# data vis preview #}
-            {% if h.is_enabled("data_comparision") %}
-                {% asset 'ckanext-data-comparision/resource-page-js' %}
-                <input type="hidden" id="resource_plot_preview_url" value={{h.url_for('data_comparision.get_one_resource_plot_data', resource_id=resource['id'] , _external=True)}}>
-                <div class="row"  id="analysis-result-area">
-                    <div class="col-sm-12" id="resource-preview-canvas-area">                        
-                        <div class="col-sm-4 plot-col-box">
-                            <div class="row text-center attemp-to-plot-loading">
-                              <h3>Attemp to Plot</h3>
-                              <div class="col-sm-12">
-                                  <div class="jumping-dots-loader">
-                                      <span></span>
-                                      <span></span>
-                                      <span></span>
-                                  </div>
-                              </div>
-                          </div>   
-                            <canvas id="resultPlot" width="300" height="200"></canvas>    
-                        </div>
-                    </div>              
-                </div>
-            {% endif %}
+            </div>            
 
           {% endblock %}
           <div class="prose notes" property="rdfs:label">
